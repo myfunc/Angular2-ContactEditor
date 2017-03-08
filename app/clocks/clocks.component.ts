@@ -19,7 +19,7 @@ export class ClocksComponent implements OnInit, OnDestroy{
 
     clockDivisions: number = 60;
 
-    get imagePath():string{
+    get imagePath(): string{
         return this.cloackBckgImagePath;
     }
 
@@ -34,35 +34,34 @@ export class ClocksComponent implements OnInit, OnDestroy{
         clearInterval(this.timer);
     }
 
-    startClocks(){
+    startClocks(): void {
         this.timer = setInterval(this.updateClock.bind(this), 50);
     }
 
-    updateClock(){
+    updateClock(): void {
             this.date = new Date;
             this.canvasClear();
             this.canvasDrawClockView();
             this.canvasDrawClockTime();
     }
 
-    canvasDrawClockView(){
-        this.canvasDrawCircle(6);
+    canvasDrawClockView(): void {
         this.canvasDrawCircle(10);
         this.canvasDrawHours();
         this.canvasDrawCenter();
     }
 
-    canvasDrawClockTime(){
+    canvasDrawClockTime(): void {
         this.canvasDrawSecondArrow();
         this.canvasDrawMinuteArrow();
         this.canvasDrawHourArrow();
     }
 
-    canvasClear(){
+    canvasClear(): void {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    drawBckgImage(image){
+    drawBckgImage(image): void {
         this.context.beginPath();
         this.context.arc(this.canvas.width/2, this.canvas.height/2, this.canvas.height/2, 0, Math.PI*2, true);
         this.context.closePath();
@@ -70,17 +69,15 @@ export class ClocksComponent implements OnInit, OnDestroy{
         this.context.drawImage(image, 0, 0);
     }
 
-    canvasDrawCircle(radius: number)
-    {
+    canvasDrawCircle(radius: number): void {
         this.context.beginPath();
         this.context.arc(this.canvas.width / 2, this.canvas.height / 2, this.clockDivisions + radius, 0, Math.PI * 2);
-        this.context.lineWidth = 1;
+        this.context.lineWidth = 2;
         this.context.strokeStyle = '#b4b4b4';
         this.context.stroke();
     }
 
-    canvasDrawCenter()
-    {
+    canvasDrawCenter(): void {
         this.context.beginPath();
         this.context.arc(this.canvas.width / 2, this.canvas.height / 2, 2, 0, Math.PI * 2);
         this.context.lineWidth = 3;
@@ -88,7 +85,7 @@ export class ClocksComponent implements OnInit, OnDestroy{
         this.context.strokeStyle = '#5a5a5a';
         this.context.stroke();
     }
-    canvasDrawHours() {
+    canvasDrawHours(): void  {
         this.context.lineWidth = 1;
         for (let i = 0; i < 12; i++) {
             this.angle = (i + 1 - 3) * (Math.PI * 2) / 12;
@@ -103,8 +100,7 @@ export class ClocksComponent implements OnInit, OnDestroy{
 
         }
     }
-    canvasDrawSecondArrow()
-    {
+    canvasDrawSecondArrow(): void {
         let milsec = this.date.getSeconds() * 1000 + this.date.getMilliseconds();
         this.angle = ((Math.PI * 2) * (milsec / 60000)) - ((Math.PI * 2) / 4);
         this.context.lineWidth = 0.5;
@@ -119,8 +115,7 @@ export class ClocksComponent implements OnInit, OnDestroy{
         this.context.stroke();
 
     }
-    canvasDrawMinuteArrow()
-    {
+    canvasDrawMinuteArrow(): void {
         let min = this.date.getMinutes();
         this.angle = ((Math.PI * 2) * (min / 60)) - ((Math.PI * 2) / 4);
         this.context.lineWidth = 1.5;
@@ -131,7 +126,7 @@ export class ClocksComponent implements OnInit, OnDestroy{
         this.context.strokeStyle = '#999999';
         this.context.stroke();
     }
-    canvasDrawHourArrow() {
+    canvasDrawHourArrow(): void {
         let hour = this.date.getHours();
         let min = this.date.getMinutes();
         this.angle = ((Math.PI * 2) * ((hour * 5 + (min / 60) * 5) / 60)) - ((Math.PI * 2) / 4);
