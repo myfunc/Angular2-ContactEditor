@@ -1,9 +1,8 @@
 import {Injectable} from "@angular/core"
 
 /*
- В тестовом задании на клиенте строится базовая логика БД,
- но есть возможность подключиться в удаленной БД и использовать
- эти классы как представления таблиц.
+In the test task, the client builds the main database functionality. 
+In the future it is easy to replace it with a real remote database.
  */
 
 @Injectable()
