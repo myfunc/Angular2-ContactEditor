@@ -1,0 +1,42 @@
+<div class="col-md-3 col-sm-12 gm-info-sidebar">
+    <div *ngIf="isReady()" class="panel panel-primary">
+        <div class="panel-heading">
+            Contact card
+        </div>
+        <div class="panel-body">
+            <form #editform="ngForm" ng class="form">
+                <div class="form-group form-group-sm" [class.has-error]="!nameval.checkValidity()"> <!-- Name -->
+                    <label class="control-label">* Name:</label>
+                    <input required #nameval name="name" pattern="^[a-zA-Z]{2,20}$" [(ngModel)]="contactInfo.contact.name" type="text" class="form-control" >
+                </div>
+                <div class="form-group form-group-sm" [class.has-error]="!surnameval.checkValidity()"> <!-- Surname -->
+                    <label class="control-label">Surname:</label>
+                    <input #surnameval name="surname" pattern="^[a-zA-Z]{2,20}$" [(ngModel)]="contactInfo.contact.surname" type="text" class="form-control" >
+                </div>
+                <div class="form-group form-group-sm" [class.has-error]="!ageval.checkValidity()"> <!-- Age -->
+                    <label class="control-label">* Age:</label>
+                    <input required #ageval name="age" pattern="^[1-9][0-9]{1}$" [(ngModel)]="contactInfo.contact.age" type="number" class="form-control" >
+                </div>
+                <div class="form-group form-group-sm"> <!-- Description -->
+                    <label class="control-label">Description:</label>
+                    <input name="description" [(ngModel)]="contactInfo.contact.description" type="text" class="form-control" >
+                </div>
+                <div class="form-group form-group-sm"> <!-- Note -->
+                    <label class="control-label">Note:</label>
+                    <input name="note" [(ngModel)]="contactInfo.contact.note" type="text" class="form-control" >
+                </div>
+
+                <div class="form-group form-group-sm">
+                    <label class="control-label">Groups:</label>
+                    <select name="groups" multiple name="groups" class="form-control" [(ngModel)]="bufferContactGroups">
+                        <option *ngFor="let group of clientsData.groups" [value]="group.groupId">{{group.groupName}}</option>
+                    </select>
+                    <span class="text-muted h6">For multiselect: hold Ctrl</span>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <button (click)="btnSaveClick()" class="btn btn-primary  btn-block">Сохранить</button>
+        </div>
+    </div>
+</div>

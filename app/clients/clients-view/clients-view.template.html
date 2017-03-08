@@ -1,0 +1,39 @@
+<div class="col-md-6 col-sm-9 gm-clients-view">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Contact page
+        </div>
+        <div class="panel-body">
+            <div class="btn-group" role="group">
+                <button class="btn btn-default btn-sm" (click)="createUnit($event)">Create</button>
+                <button class="btn btn-default btn-sm" (click)="editUnit($event)">Edit</button>
+                <button class="btn btn-default btn-sm" (click)="deleteUnit($event)">Delete</button>
+                <button class="btn btn-default btn-sm">Select</button>
+            </div>
+            <hr>
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+                </thead>
+                <tbody (click)="setIdleState()">
+                <tr *ngFor="let contact of clientsData.contacts"
+                    [class.active] = "isTableCellActive(contact)"
+                    (click)="activateTableCell(contact)" class ="gm-pointer"
+                >
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.surname}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<client-edit-box *ngIf="isEditableState()"
+                 [globalGroups]="clientsData.groups"
+                 [activeContactInfo]="activeContactInfo"
+                 (onSave)="onEditBoxSaved()">
+</client-edit-box>
+<client-info *ngIf="!isEditableState()" [activeContact]="activeContact"></client-info>

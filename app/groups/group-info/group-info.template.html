@@ -1,0 +1,19 @@
+<div class="col-md-3 col-sm-12 gm-info-sidebar">
+    <div *ngIf="activeGroup" class="panel panel-primary">
+        <div class="panel-heading">
+            Group card
+        </div>
+        <div class="panel-body">
+            <div class="h3">Group: {{activeGroup.groupName}}</div>
+
+            <hr>
+            <p>Members: {{groupMembersCount()}}</p>
+            <ol>
+                <li *ngFor="let contact of getGroupContacts()" class="h6">
+                    {{contact.name}} {{contact.surname}}
+                </li>
+            </ol>
+
+        </div>
+    </div>
+</div>

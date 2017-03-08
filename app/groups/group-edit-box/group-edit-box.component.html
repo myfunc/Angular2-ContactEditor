@@ -1,0 +1,18 @@
+<div class="col-md-3 col-sm-12 gm-info-sidebar">
+    <div *ngIf="isReady()" class="panel panel-primary">
+        <div class="panel-heading">
+            Contact card
+        </div>
+        <div class="panel-body">
+            <form #editform="ngForm" class="form">
+                <div class="form-group form-group-sm" [class.has-error]="!groupname.checkValidity()"> <!-- Group name -->
+                    <label class="control-label">Group Name:</label>
+                    <input required #groupname name="groupName" [(ngModel)]="groupInfo.group.groupName" type="text" class="form-control" >
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <button (click)="btnSaveClick()" class="btn btn-primary  btn-block">Сохранить</button>
+        </div>
+    </div>
+</div>

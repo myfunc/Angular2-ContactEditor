@@ -1,0 +1,72 @@
+{
+  "m_contacts": [
+    {
+      "contactId": 0,
+      "name": "Vasiliy",
+      "surname": "Pryahin",
+      "age": 30,
+      "description": "like tea",
+      "note": ""
+    },
+    {
+      "contactId": 1,
+      "name": "Nikolay",
+      "surname": "Drozdov",
+      "age": 28,
+      "description": ".NET developer",
+      "note": ""
+    },
+    {
+      "contactId": 2,
+      "name": "Ivan",
+      "surname": "Green",
+      "age": 51,
+      "description": "From Canada",
+      "note": "Have macBook"
+    },
+    {
+      "contactId": 3,
+      "name": "Michael",
+      "surname": "Krasnov",
+      "age": 34,
+      "description": "Every day in a suit",
+      "note": ""
+    }
+  ],
+  "m_groups": [
+    {
+      "groupId": 0,
+      "groupName": "admins"
+    },
+    {
+      "groupId": 1,
+      "groupName": "moderators"
+    },
+    {
+      "groupId": 2,
+      "groupName": "users"
+    }
+  ],
+  "m_contactsInGroup": [
+    {
+      "contactId": 0,
+      "groupId": 0
+    },
+    {
+      "contactId": 1,
+      "groupId": 2
+    },
+    {
+      "contactId": 2,
+      "groupId": 2
+    },
+    {
+      "contactId": 3,
+      "groupId": 2
+    },
+    {
+      "contactId": 2,
+      "groupId": 1
+    }
+  ]
+}

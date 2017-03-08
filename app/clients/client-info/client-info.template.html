@@ -1,0 +1,22 @@
+<div class="col-md-3 col-sm-12 gm-info-sidebar">
+    <div *ngIf="activeContact" class="panel panel-primary">
+        <div class="panel-heading">
+            Contact card
+        </div>
+        <div class="panel-body">
+            <div class="h3">{{activeContact.name}} {{activeContact.surname}}</div>
+            <hr>
+            <div class="h6">Age: {{ activeContact.age }}</div>
+            <div class="h6">
+                Groups:
+                <ul>
+                    <li *ngFor="let group of clientsData.getContactGroups(activeContact)">
+                        {{group.groupName}}
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="activeContact.description" class="h6">Description: {{ activeContact.description }}</div>
+            <div *ngIf="activeContact.note" class="h6">Note: {{ activeContact.note }}</div>
+        </div>
+    </div>
+</div>

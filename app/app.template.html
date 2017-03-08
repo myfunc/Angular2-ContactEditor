@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Contact editor
+    </div>
+    <div class="panel-body">
+        <app-menu (onViewChange)="updateState($event)" ></app-menu>
+        <clients-view *ngIf="isClientView()"></clients-view>
+        <groups-view *ngIf="isGroupsView()"></groups-view>
+        <clocks *ngIf="isClocksView()"></clocks>
+    </div>
+</div>
