@@ -1,6 +1,7 @@
 ## About
 Angular2 application for managing the contact base. It works locally in the future can be operated remotely.
 Also an additional page with a clock on the canvas.
+(Designed for self-study.)
 
 ![view image](https://raw.githubusercontent.com/myfunc/Angular2-ContactEditor/master/angular.PNG)
 
