@@ -42,7 +42,6 @@ var ClocksComponent = (function () {
         this.canvasDrawClockTime();
     };
     ClocksComponent.prototype.canvasDrawClockView = function () {
-        this.canvasDrawCircle(6);
         this.canvasDrawCircle(10);
         this.canvasDrawHours();
         this.canvasDrawCenter();
@@ -65,7 +64,7 @@ var ClocksComponent = (function () {
     ClocksComponent.prototype.canvasDrawCircle = function (radius) {
         this.context.beginPath();
         this.context.arc(this.canvas.width / 2, this.canvas.height / 2, this.clockDivisions + radius, 0, Math.PI * 2);
-        this.context.lineWidth = 1;
+        this.context.lineWidth = 2;
         this.context.strokeStyle = '#b4b4b4';
         this.context.stroke();
     };
@@ -98,10 +97,9 @@ var ClocksComponent = (function () {
         this.context.beginPath();
         this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
         this.context.lineTo((this.canvas.width / 2 + Math.cos(this.angle) * this.clockDivisions), this.canvas.height / 2 + Math.sin(this.angle) * this.clockDivisions);
-        // DRAW THE TAIL OF THE SECONDS HAND.
         this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
         this.context.lineTo((this.canvas.width / 2 - Math.cos(this.angle) * 20), this.canvas.height / 2 - Math.sin(this.angle) * 20);
-        this.context.strokeStyle = '#586A73';
+        this.context.strokeStyle = '#555555';
         this.context.stroke();
     };
     ClocksComponent.prototype.canvasDrawMinuteArrow = function () {
@@ -111,7 +109,7 @@ var ClocksComponent = (function () {
         this.context.beginPath();
         this.context.moveTo(this.canvas.width / 2, this.canvas.height / 2);
         this.context.lineTo((this.canvas.width / 2 + Math.cos(this.angle) * this.clockDivisions / 1.1), this.canvas.height / 2 + Math.sin(this.angle) * this.clockDivisions / 1.1);
-        this.context.strokeStyle = '#999';
+        this.context.strokeStyle = '#999999';
         this.context.stroke();
     };
     ClocksComponent.prototype.canvasDrawHourArrow = function () {

@@ -10,9 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 /*
- В тестовом задании на клиенте строится базовая логика БД,
- но есть возможность подключиться в удаленной БД и использовать
- эти классы как представления таблиц.
+In the test task, the client builds the main database functionality.
+In the future it is easy to replace it with a real remote database.
  */
 var Contact = (function () {
     function Contact(contactId, name, surname, age, description, note) {
